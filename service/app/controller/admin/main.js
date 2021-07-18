@@ -50,7 +50,33 @@ class MainController extends Controller{
             isScuccess:updateSuccess
         }   
     }
+    async getArticleList(){
+
+        let sql = 'SELECT article.id as id,'+
+                    'article.title as title,'+
+                    'article.introduce as introduce '+
+                    'FROM article '+
+                    'ORDER BY article.id DESC '
     
+        const result = await this.app.mysql.query(sql)
+        this.ctx.body = {
+            list:result
+        }
+    }
+    async getArticleById() {
+        
+        let id = this.ctx.params.id
+        let sql = 'SELECT article.id as id,'+
+                'article.title as title,'+
+                'article.introduce as introduce,'+
+                'article.article_content as article_content '+
+                'FROM article '+
+                'WHERE article.id='+id
+        const result = await this.app.mysql.query(sql)
+        this.ctx.body = {
+            data:result
+        }
+    }
 }
 
 module.exports = MainController
