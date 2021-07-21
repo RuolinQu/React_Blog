@@ -23,6 +23,14 @@ module.exports = appInfo => {
     // myAppName: 'egg',
   };
 
+  // config.session = {
+  //   key: 'EGG_SESS',
+  //   maxAge: 24 * 3600 * 1000, // 1 day
+  //   httpOnly: true,
+  //   encrypt: true,
+  //   renew: true //延长会话有效期
+  // }
+
   config.mysql = {
     // database configuration
     client: {
@@ -48,7 +56,7 @@ module.exports = appInfo => {
 　　　　　　enable: false
 　　　　  },
 // 　　　　domainWhiteList: [ '*' ]
-        domainWhiteList: [ 'http://localhost:3000',  'http://localhost:7001', 'http://localhost:3001' ]  
+        domainWhiteList: [ 'http://localhost:3000', 'http://localhost:3001' ]  
 　　};
   config.cors = {
     // origin: '*',
